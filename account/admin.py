@@ -6,10 +6,10 @@ from .models import Account
 class accountFilter(ImportExportActionModelAdmin):
     #list_display = [field.name for field in Account._meta.fields] #display all account content
 
-    list_display = ('id','userName','userRoot',)
-    list_filter = ('id','userRoot',)
+    list_display = ('id', 'userName', 'userRoot', 'passWord')
+    list_filter = ('id', 'userRoot',)
     list_per_page = 10
-
+    list_editable = ('userRoot', )
     #ordering = ('-mod_date',)
     #list_filter = ('userName')
 # Register your models here.
