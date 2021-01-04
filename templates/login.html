@@ -76,7 +76,8 @@
         <h2><strong>歡迎使用訂房系統</strong></h2>
             <div class="container login_ui">
                 <center><h3><strong>請登入帳號</strong></h3></center>
-                <form action="/post/" method="post" name="form1">
+                <form action="/post/" method="post" name="account" id="accountInfo">
+                    {% csrf_token %}
                     <div class="input-group mb-3 account">
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="inputGroup-sizing-sm"><strong>帳號</strong></span>
@@ -90,10 +91,8 @@
                         </div>
                         <input type="text" id="password" name="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
+                <a type="submit" class="btn btn-primary btn_confirm"  role="button">登入</a>
                 </form>
-
-                <a class="btn btn-primary btn_confirm"  role="button">送出</a>
-
                 <a class="register" href="register.html"><strong>若尚未註冊請點選註冊</strong></a>
 
             </div>
@@ -122,7 +121,8 @@
                 }
                 else{
 
-                    window.location.href="main.html";
+                    //window.location.href="post";
+                    document.getElementById('accountInfo').submit();
                 }
                 
             })

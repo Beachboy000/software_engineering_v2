@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.template.loader import get_template
 from account.mod import get_account
@@ -12,8 +12,17 @@ def showTemplate(request):
 
 def post(request):
     if request.method == 'POST':
-        mess = request.POST['name']
-        get_account.register(mess, '12345')
+        username = request.POST['name']
+        password = request.POST['password']
+        if get_account.register(username, password):
+            return render(request, 'main.html', locals())
+        else :
+            return redirect('/urlTest/showTemplate/')
+
+
     else:
         mess = "Error"
-    return render(request, 'main.html', locals())
+    #return render(request, 'main.html', locals())
+
+def main(request):
+    return render(request,'main.html',locals())
