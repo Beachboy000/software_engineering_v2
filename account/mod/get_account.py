@@ -3,7 +3,7 @@ from account.models import Account
 def getAccount(id,pwd):                     #檢查帳號是否存在
     idTest = 'B10730023@gmail.com'
     pwdTest = '12345678'
-    account = Account.objects.filter(userName=idTest, passWord=pwdTest)
+    account = Account.objects.filter(userName=id, passWord=pwd)
 
     # account = Account.objects.filter(userName=id, passWord=pwd)
     if account.exists():

@@ -2,7 +2,7 @@
 
 這是軟工垃圾期末project
 
-吳鎮宇不會js
+吳鎮宇先生，快用你那萬能的哲瑋想想辦法!!!
 
 ## Background
 
@@ -24,11 +24,11 @@
 
 ## Maintainer
 
-前端--何亮牖
+前端 >>> [@何亮牖](https://github.com/B10730029)
 
-Model--粘哲瑋
+Model >>> [@粘哲瑋](https://github.com/Uare87haha)
 
-我不會啦好難喔--吳鎮宇
+**我不會啦好難喔** >>> [@吳鎮宇](https://github.com/Beachboy000)
 
 ## Contributing
 
@@ -36,4 +36,4 @@ Model--粘哲瑋
 
 ### Contributors
 
-This project exists thanks to @Aiden-Lai who contribute
+This project exists thanks to [@AidenLai](https://github.com/AidenLai) who contribute

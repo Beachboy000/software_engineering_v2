@@ -14,9 +14,9 @@ def post(request):
     if request.method == 'POST':
         username = request.POST['name']
         password = request.POST['password']
-        if get_account.register(username, password):
+        if get_account.getAccount(username, password):
             return render(request, 'main.html', locals())
-        else :
+        else:
             return redirect('/urlTest/showTemplate/')
 
 
