@@ -1,0 +1,39 @@
+
+body{
+    background-color:black;
+  }
+  .header{
+    background-color:orchid;
+    height:100pt;
+    
+  }
+  .nav-link{
+   /* width:60pt;*/
+    display:inline-block;
+    background-color:rgb(226, 228, 141);
+    color:indigo;
+    font-size: 14pt;
+    margin: 10pt 10pt 20pt;
+    transition: all 1s 0s ease;
+  }
+  .nav-link:hover{
+    background-color:darkred;
+  }
+
+  .body1{
+      height:450pt;
+      background-color:lavender;
+  }
+  h2{
+      text-align:center;
+      position:relative;
+      top:10pt;
+      color:darkblue;
+  }
+  .ui{
+      position:relative;
+      height:400pt;
+      background-color:lavender;
+      border:3px solid;
+      top :20pt;
+  }

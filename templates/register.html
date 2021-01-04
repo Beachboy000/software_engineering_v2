@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>訂房系統</title>
+    <style>
+        .header{
+            text-align:center;
+        }
+        h1{
+            position:relative;
+            top: 20pt;
+        }
+        .login_ui{
+            position: relative;
+            border: 3px solid;
+            height: 300pt;
+            width: 400pt;
+            top: 20pt;
+        }
+        h3{
+            position: relative;
+            top:20pt;
+        }
+
+        .account{
+            position: relative;
+            top :40pt;
+        }
+
+        .password{
+            position: relative;
+            top: 60pt;
+        }
+
+        .check_password{
+            position: relative;
+            top:80pt;
+        }
+
+        .btn_confirm{
+            position: relative;
+            top:100pt;
+            left:160pt;
+        }
+       
+    </style>
+  </head>
+  <body>
+    <div class="container header">
+      <h1>垃圾軟工訂房系統</h1>
+      <!-- <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" href="main.html">首頁</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">登入</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">關於我們</a>
+        </li>
+      </ul> -->
+    </div>
+
+    <div class="container body1">
+      
+
+      <div class="container ui">
+        <h2><strong>歡迎使用訂房系統</strong></h2>
+            <div class="container login_ui">
+                <center><h3><strong>歡迎註冊帳號</strong></h3></center>
+                <div class="input-group mb-3 account">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm"><strong>請輸入email帳號</strong></span>
+                    </div>
+                    <input type="text" id="name" name="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                  
+                <div class="input-group mb-3 password">
+                    <div class="input-group-prepend input1">
+                      <span class="input-group-text" id="inputGroup-sizing-default" ><strong>&emsp;&nbsp;請輸入密碼&nbsp;&emsp;</strong></span>
+                    </div>
+                    <input type="text" id="password" name="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                  
+                <div class="input-group mb-3 check_password">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default" ><strong>&nbsp;請重新輸入密碼&nbsp;</strong></span>
+                    </div>
+                    <input type="text" id="check_password" name="check_password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <a class="btn btn-primary btn_confirm"  role="button">送出</a>
+
+                
+
+            </div>
+      </div>
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https:/    x/code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script type = "text/javascript">
+
+       $(document).ready(function(){
+
+        $(".btn_confirm").click(function(){
+                const user_name = document.getElementById('name').value;
+                const user_password = document.getElementById('password').value;
+                const check_password = document.getElementById('check_password').value;
+                
+                //alert('123456');
+                if(user_name.length==0){
+                    alert("帳號不得為空");
+                }
+                else if(user_password.length==0){
+                    alert("密碼不得為空");
+                }
+                else if(check_password.length==0 || check_password != user_password){
+                    alert("密碼不一致")
+                }
+                else{
+                    window.location.href = 'main.html';
+                }
+            })
+
+
+       })
+
+
+    </script>
+  </body>
+</html>
