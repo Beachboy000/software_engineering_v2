@@ -1,35 +1,31 @@
 from account.models import Account
 
-#from account.mod.get_account import accountSet
-class accountSet(Account):
-    def getAccount(id, passW):                     #檢查帳號是否存在
-        '''
-        getName = 'example@gmail.com'
-        getPass = '1234'
-        '''
-        account = Account.objects.filter(userName=id, passWord=passW)
-        if account.exists():
-            return True
-        else:
-            return False
+def getAccount(id,pwd):                     #檢查帳號是否存在
+    id = 'B10730023@gmail.com'
+    pwd = '12345678'
+    account = Account.objects.filter(userName = id,passWord = pwd)
+    if account.exists():
+        return True
+    else:
+        return False
 
-    def changePwd(id,newPass):                      #更改密碼
-        '''
-        changeName = 'example@gmail.com'
-        passW = '12345'
-        '''
-        account = Account.objects.filter(userName=id)
-        if account.exists():
-            account.update(passWord = newPass)
+def changePwd(id,pwd):                      #更改密碼
+    id = 'B10730023@gmail.com'
+    pwd = '12345678'
+    account = Account.objects.filter(userName=id)
+    if account.exists():
+        account.update(passWord = pwd)
 
-    def register(id,passW):                       #註冊
-        '''
-        reName = 'example@gmail.com'              #form = 'example@gmail.com'
-        rePass = '1234'
-        '''
-        account = Account.objects.filter(userName=id)
-        if account.exists():                    #存在則回傳錯誤
-            return False
-        else:                                   #不存在則建立資料並回傳True
-            Account.objects.create(userName = id,passWord = passW)
-            return True
+def rigester(id,pwd):                       #註冊
+    id = 'B10730023 @ gmail.com'
+    pwd = '12345678'
+    account = Account.objects.filter(userName=id)
+    if account.exists():                    #存在則回傳錯誤
+        return False
+    else:                                   #不存在則建立資料並回傳True
+        Account.objects.create(userName = id,passWord = pwd)
+        return True
+
+def ban(id):                                #封鎖帳號
+    account = Account.objects.filter(userName=id)
+    account.update(userRoot = banned)
