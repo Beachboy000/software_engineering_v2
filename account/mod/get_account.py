@@ -25,7 +25,8 @@ def changePwd(id,pwd):                      #更改密碼
     '''
 
 
-def rigester(id,pwd):                       #註冊
+def register(id,pwd):                       #註冊
+    '''
     idTest = 'B10730023 @ gmail.com'
     pwdTest = '12345678'
     account = Account.objects.filter(userName=idTest)
@@ -42,7 +43,7 @@ def rigester(id,pwd):                       #註冊
     else:                                  
         Account.objects.create(userName = id,passWord = pwd)
         return True
-    '''
+
 
 def ban(id):                                #封鎖帳號
     account = Account.objects.filter(userName=id)
