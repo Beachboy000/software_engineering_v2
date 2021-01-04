@@ -1,13 +1,14 @@
 from room.models import Room
+import datetime
 
 def check(id,start,end):       #檢查房間是否為空
     id = 1
     start = datetime.datetime(2021,1,1,12,0)
     end = datetime.datetime(2021,1,1,14,0)
-    status = Room.objects.filter(roomID = id,created_at__range=(start, end))
+    status = Room.objects.filter(roomID = id,start_time__range=(start, end),end_time__range=(start,end))
     if status.exists():
         return False
-    else
+    else:
         return True
 
 def getHistory(id):             #查詢歷史(by room)
