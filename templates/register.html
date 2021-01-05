@@ -2,12 +2,13 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
+    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
     <title>訂房系統</title>
     <style>
         .header{
@@ -75,6 +76,8 @@
         <h2><strong>歡迎使用訂房系統</strong></h2>
             <div class="container login_ui">
                 <center><h3><strong>歡迎註冊帳號</strong></h3></center>
+                <form action="/regist/" method="post" name="new" id="creatAccount">
+                {% csrf_token %}
                 <div class="input-group mb-3 account">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="inputGroup-sizing-sm"><strong>請輸入email帳號</strong></span>
@@ -98,7 +101,7 @@
 
                 <a class="btn btn-primary btn_confirm"  role="button">送出</a>
 
-                
+                </form>
 
             </div>
       </div>
@@ -130,7 +133,8 @@
                     alert("密碼不一致")
                 }
                 else{
-                    window.location.href = 'main.html';
+                    //window.location.href = 'main.html';
+                    document.getElementById('creatAccount').submit();
                 }
             })
 
@@ -139,5 +143,14 @@
 
 
     </script>
+
+    {% if messages %}
+    <script>
+        {% for msg in messages %}
+            alert('{{ msg.message }}');
+        {% endfor %}
+    </script>
+    {% endif %}
+
   </body>
 </html>

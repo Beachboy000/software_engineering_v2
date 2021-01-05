@@ -1,28 +1,30 @@
 from account.models import Account
 
 def getAccount(id,pwd):                     #檢查帳號是否存在
+    '''
     idTest = 'B10730023@gmail.com'
     pwdTest = '12345678'
-    account = Account.objects.filter(userName=id, passWord=pwd)
+    '''
 
-    # account = Account.objects.filter(userName=id, passWord=pwd)
+    account = Account.objects.filter(userName=id, passWord=pwd)
     if account.exists():
         return True
     else:
         return False
 
 def changePwd(id,pwd):                      #更改密碼
+    '''
     idTest = 'B10730023@gmail.com'
     pwdTest = '12345678'
     account = Account.objects.filter(userName=idTest)
     if account.exists():
         account.update(passWord = pwdTest)
-
     '''
+
     account = Account.objects.filter(userName=id)
     if account.exists():
-        account.update(passWord = pwd)
-    '''
+        account.update(passWord=pwd)
+
 
 
 def register(id,pwd):                       #註冊
@@ -35,8 +37,8 @@ def register(id,pwd):                       #註冊
     else:                                   #不存在則建立資料並回傳True
         Account.objects.create(userName = idTest,passWord = pwdTest)
         return True
+    '''
 
-    ''' 
     account = Account.objects.filter(userName=id)
     if account.exists():                   
         return False

@@ -51,6 +51,11 @@
             top:150pt;
             left: 200pt;
         }
+        .btn_register{
+            position: relative;
+            top:120pt;
+            left:260pt;
+        }
     </style>
   </head>
   <body>
@@ -93,8 +98,10 @@
                     </div>
                 <a type="submit" class="btn btn-primary btn_confirm"  role="button">登入</a>
                 </form>
-                <a class="register" href="register.html"><strong>若尚未註冊請點選註冊</strong></a>
-
+                <form action="/goRegisterPage/" method="post" name="register" id="registerButt">
+                    {% csrf_token %}
+                    <a type="submit" class="btn btn-link btn_register"  role="button"><strong>註冊測試</strong></a>
+                </form>
             </div>
       </div>
     </div>
@@ -120,18 +127,31 @@
                     alert("密碼不得為空");
                 }
                 else{
-
                     //window.location.href="post";
                     document.getElementById('accountInfo').submit();
                 }
-                
-            })
+            }
+            )
+       })
 
-           
+        $(document).ready(function(){
 
+            $(".btn_register").click(function(){
+                    //window.location.href="post";
+                    document.getElementById('registerButt').submit();
+            }
+            )
        })
 
 
     </script>
+    {% if messages %}
+    <script>
+        {% for msg in messages %}
+            alert('{{ msg.message }}');
+        {% endfor %}
+    </script>
+    {% endif %}
+
   </body>
 </html>
