@@ -1,4 +1,7 @@
 from account.models import Account
+import re
+
+regex = '^[A-z0-9]+[\._]?[a-z0-9]+@(\w+.)+(com|tw)$'    #email格式
 
 def getAccount(id,pwd):                     #檢查帳號是否存在
     '''
@@ -40,11 +43,16 @@ def register(id,pwd):                       #註冊
     '''
 
     account = Account.objects.filter(userName=id)
-    if account.exists():                   
+    if (re.search(regex,id)):
+        if account.exists():
+            return False
+        else:
+            Account.objects.create(userName=id, passWord=pwd)
+            return True
+    else:
         return False
-    else:                                  
-        Account.objects.create(userName = id,passWord = pwd)
-        return True
+
+
 
 
 def ban(id):                                #封鎖帳號

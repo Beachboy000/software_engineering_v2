@@ -6,6 +6,10 @@ from django.contrib import messages
 #from django.template import loader
 # Create your views here.
 
+
+#打註解啦!!機掰人!!!
+
+
 def loginPage(request):
     #return HttpResponse("FU")
     return render(request, 'login.html')
@@ -37,7 +41,7 @@ def regist(request):
             messages.success(request, '成功註冊~開心')
             return redirect('/')
         else:
-            messages.error(request, '用戶已存在，找茬嗎?')
+            messages.error(request, '輸入格式錯誤或用戶已存在 請重新輸入')
             return redirect('/')
 
 def goMainPage(request):
