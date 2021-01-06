@@ -9,7 +9,6 @@ class Room(models.Model):
     end_time = models.DateTimeField()
     date = models.DateTimeField(default=datetime.now())
     '''
-    classID = models.IntegerField(default=0)
     seq = models.IntegerField(default=0)
     start = models.IntegerField(default=0)
     end = models.IntegerField(default=0)

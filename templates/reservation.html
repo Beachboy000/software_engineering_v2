@@ -70,6 +70,17 @@
             color: gold;
         }
 
+        .name_input{
+             position: relative;
+            top: 20pt;
+            left:50pt;
+            /* display: inline-block; */
+            width: 700pt;
+        }
+        .name_input p {
+             font-size: 15pt;
+        }
+
         .date_input {
             position: relative;
             top: 20pt;
@@ -81,14 +92,14 @@
             font-size: 15pt;
         }
 
-        .meating_title_input {
+        .meeting_title_input {
             position: relative;
             top: 20pt;
             left:50pt;
             /* display: inline-block; */
             width: 700pt;
         }
-        .meating_title_input p {
+        .meeting_title_input p {
             font-size: 15pt;
         }
 
@@ -237,12 +248,17 @@
 
             <form action="/borrow/" method="post" id="borrow_form">
                 {% csrf_token %}
+                <div class="form-group name_input">
+                    <p><strong>請輸入借用人</strong></p>
+                    <input class="form-control" id="userBorrow" name="userBorrow" value="">
+                </div>
+
                 <div class="form-group date_input">
                     <p><strong>請輸入日期</strong></p>
                     <input type="date" class="form-control" id="date" name="date" value="">
                 </div>
 
-                <div class="form-group meating_title_input">
+                <div class="form-group meeting_title_input">
                     <p><strong>請輸入借教室目的</strong></p>
                     <input class ="form-control" id="meeting_title" name="meeting_title" value="">
                 </div>
@@ -328,6 +344,7 @@
             })  
 
             $(".borrow_btn").click(function(){
+                const userBorrow = document.getElementById('userBorrow').value;
                 const date = document.getElementById('date').value;
                 const meeting_title = document.getElementById('meeting_title').value;
                 const room_id = document.getElementById('room_id').value;

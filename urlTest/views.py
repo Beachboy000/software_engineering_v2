@@ -76,15 +76,18 @@ def goReservePage(request):
 def borrow(request):
     if request.method == "POST":
         roomIn = request.POST['room_id']
-        roomStr = roomIn
+
+        roomStr = roomIn            #字串轉換
         room_id = ''.join([x for x in roomStr if x.isdigit()])
+
+        name = request.POST['userBorrow']
         start = request.POST['start_section']
         end = request.POST['end_section']
         population = request.POST['population']
         date = request.POST['date']
         purpose = request.POST['meeting_title']
         if room.check(room_id, start, end, date):
-            room.reservation(room_id, start, end, date, purpose)
+            room.reservation(room_id, start, end, date, purpose, name, population)
             messages.success(request, '成功預約~開心')
             return render(request, 'main.html', locals())
 
