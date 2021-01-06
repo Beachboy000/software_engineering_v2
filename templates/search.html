@@ -21,6 +21,53 @@
             height: 550pt;
         }
 
+        .btn_goMain{
+        position: absolute;
+        left: 420pt;
+        top: 40pt;
+        height: 40pt;
+        width: 70pt;
+        font-size: 15pt;
+        background-color:cadetblue;
+        transition: all 1s 0s ease;
+
+      }
+      .btn_goMain:hover{
+        background-color: lemonchiffon;
+      }
+
+
+      .btn_goInfo{
+        position: absolute;
+        left: 520pt;
+        top: 40pt;
+        height: 40pt;
+        width: 100pt;
+        font-size: 15pt;
+        background-color:cadetblue;
+        transition: all 1s 0s ease;
+
+      }
+      .btn_goInfo:hover{
+        background-color: lemonchiffon;
+      }
+
+
+      .btn_goDonate{
+        position: absolute;
+        left: 660pt;
+        top: 40pt;
+        height: 40pt;
+        width: 100pt;
+        font-size: 15pt;
+        background-color:cadetblue;
+        transition: all 1s 0s ease;
+
+      }
+      .btn_goDonate:hover{
+        background-color: lemonchiffon;
+      }
+
         .search_room {
             height: 50pt;
             width: 120pt;
@@ -156,16 +203,25 @@
     <div class="container header">
         <h1>垃圾軟工訂房系統</h1>
         <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link" href="main.html">首頁</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">關於我們</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">贊助我們</a>
-            </li>
-        </ul>
+        <li class="nav-item">
+          <form action="/goMainPage/" method="post" name="goMain" id="goMain">
+          {% csrf_token %}
+          <a type="submit" class="btn btn-primary btn_goMain"  role="button"><strong>首頁</strong></a>
+          </form>
+        </li>
+        <li class="nav-item">
+          <form action="/goOurInfoPage/" method="post" name="goInfo" id="goInfo">
+          {% csrf_token %}
+          <a type="submit" class="btn btn-primary btn_goInfo"  role="button"><strong>關於我們</strong></a>
+          </form>
+        </li>
+        <li class="nav-item">
+           <form action="/goDonatePage/" method="post" name="goDonate" id="goDonate">
+          {% csrf_token %}
+          <a type="submit" class="btn btn-primary btn_goDonate"  role="button"><strong>斗內我們</strong></a>
+          </form>
+        </li>
+      </ul>
     </div>
 
     <div class="container body1">
@@ -204,10 +260,6 @@
                     </button>
                 </div>
                 <!-- </div> -->
-
-
-                </form>
-
             </nav>
 
 
@@ -330,9 +382,16 @@
             </div>
 
             <div class="nav-item mt-2 reservation_search">
+                <form action="/goReservePage/" method="post" name="goReserve" id="goReserve">
+                {% csrf_token %}
+                <a type="submit" class="btn btn-primary btn_reservation" role="button"><strong>預約教室</strong></a>
+                </form>
+
+                <!--
                 <button class="btn btn-primary btn_reservation" style="width: 150px;" type="submit">
                     預約教室
                 </button>
+                -->
             </div>
 
         </div>
@@ -382,15 +441,45 @@
             })
 
             $(".btn_reservation").click(function(){
-
-                window.location.href='reservation.html';
+                document.getElementById('goReserve').submit();
+               // window.location.href='reservation.html';
 
             })
 
         })
 
-    </script>
+        //跳轉function
+        $(document).ready(function(){
 
+            $(".btn_goMain").click(function(){
+                    document.getElementById('goMain').submit();
+            }
+            )
+       })
+
+       $(document).ready(function(){
+
+            $(".btn_goInfo").click(function(){
+                    document.getElementById('goInfo').submit();
+            }
+            )
+       })
+       $(document).ready(function(){
+
+            $(".btn_goDonate").click(function(){
+                    document.getElementById('goDonate').submit();
+            }
+            )
+       })
+
+    </script>
+    {% if messages %}
+    <script>
+        {% for msg in messages %}
+            alert('{{ msg.message }}');
+        {% endfor %}
+    </script>
+    {% endif %}
 </body>
 
 </html>

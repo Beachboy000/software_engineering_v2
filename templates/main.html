@@ -59,6 +59,66 @@
         background-color: lemonchiffon;
       }
 
+       .btn_goSearch{
+        position: absolute;
+        left: 350pt;
+        top: 60pt;
+        height: 50pt;
+        width: 120pt;
+        font-size: 15pt;
+        background-color:rgb(226, 124, 187);
+        color:rgb(206, 206, 173);
+        border: 2pt solid;
+        border-color: black;
+        line-height:41pt;
+        transition: all 1s 0s ease;
+
+      }
+      .btn_goSearch:hover{
+        background-color:rgb(122, 163, 216);
+        color:gold
+      }
+
+      .btn_goHistory{
+        position: absolute;
+        left: 350pt;
+        top: 160pt;
+        height: 50pt;
+        width: 120pt;
+        font-size: 15pt;
+        background-color:rgb(226, 124, 187);
+        color:rgb(206, 206, 173);
+        border: 2pt solid;
+        border-color: black;
+        line-height:41pt;
+        transition: all 1s 0s ease;
+
+      }
+      .btn_goHistory:hover{
+        background-color: rgb(122, 163, 216);
+        color:gold
+      }
+
+      .btn_goHelp{
+        position: absolute;
+        left: 350pt;
+        top: 260pt;
+        height: 50pt;
+        width: 120pt;
+        font-size: 15pt;
+        background-color:rgb(226, 124, 187);
+        color:rgb(206, 206, 173);
+        border: 2pt solid;
+        border-color: black;
+        line-height:41pt;
+        transition: all 1s 0s ease;
+
+      }
+      .btn_goHelp:hover{
+        background-color: rgb(122, 163, 216);
+        color:gold
+      }
+
       .search_room{
         height: 50pt;
         width: 120pt;
@@ -144,14 +204,21 @@
 
       <div class="container ui">
         <h2><strong>歡迎使用訂房系統</strong></h2>
-
-        <center><a class="btn search_room" href="search.html" role="button">查詢可借房間</a></center>
-
-        
-        <center><a class="btn search_history" href="#" role="button">查詢歷史</a></center>
-
-        
-        <center><a class="btn help" href="#" role="button">幫助</a></center>
+                <form action="/goSearchPage/" method="post" name="goSearch" id="goSearch">
+                    {% csrf_token %}
+                    <a type="submit" class="btn btn-primary btn_goSearch"  role="button">查詢可借房間</a>
+                </form>
+{#        <center><a class="btn search_room" href="search.html" role="button">查詢可借房間</a></center>#}
+                 <form action="/goHistoryPage/" method="post" name="goHistory" id="goHistory">
+                    {% csrf_token %}
+                    <a type="submit" class="btn btn-primary btn_goHistory"  role="button">查詢歷史</a>
+                 </form>
+{#        <center><a class="btn search_history" href="#" role="button">查詢歷史</a></center>#}
+                 <form action="/goHelpPage/" method="post" name="goHistory" id="goHelp">
+                    {% csrf_token %}
+                    <a type="submit" class="btn btn-primary btn_goHelp"  role="button">幫助</a>
+                 </form>
+{#        <center><a class="btn help" href="#" role="button">幫助</a></center>#}
       </div>
     </div>
     
@@ -162,6 +229,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script type = "text/javascript">
 
+        //跳轉function
        /*
        $(document).ready(function(){
 
@@ -182,6 +250,27 @@
 
             $(".btn_goDonate").click(function(){
                     document.getElementById('goDonate').submit();
+            }
+            )
+       })
+        $(document).ready(function(){
+
+            $(".btn_goSearch").click(function(){
+                    document.getElementById('goSearch').submit();
+            }
+            )
+       })
+        $(document).ready(function(){
+
+            $(".btn_goHistory").click(function(){
+                    document.getElementById('goHistory').submit();
+            }
+            )
+       })
+        $(document).ready(function(){
+
+            $(".btn_goHelp").click(function(){
+                    document.getElementById('goHelp').submit();
             }
             )
        })

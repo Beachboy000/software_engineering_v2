@@ -26,7 +26,12 @@ urlpatterns = [
     path('goMainPage/', views.goMainPage),
     path('goOurInfoPage/', views.goOurInfoPage),
     path('goDonatePage/', views.goDonatePage),
-    path('goSearch/', views.goSearchPage),
+    path('goSearchPage/', views.goSearchPage),
+    path('goHistoryPage/', views.goHistoryPage),
+    path('goHelpPage/', views.goHelpPage),
+    path('goReservePage/', views.goReservePage),
+    path('borrow/', views.borrow),
+
 
 ]
 

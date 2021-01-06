@@ -154,6 +154,53 @@
         .clear_btn:hover{
             background-color:maroon;
         }
+
+        .btn_goMain{
+        position: absolute;
+        left: 420pt;
+        top: 40pt;
+        height: 40pt;
+        width: 70pt;
+        font-size: 15pt;
+        background-color:cadetblue;
+        transition: all 1s 0s ease;
+
+      }
+      .btn_goMain:hover{
+        background-color: lemonchiffon;
+      }
+
+
+      .btn_goInfo{
+        position: absolute;
+        left: 520pt;
+        top: 40pt;
+        height: 40pt;
+        width: 100pt;
+        font-size: 15pt;
+        background-color:cadetblue;
+        transition: all 1s 0s ease;
+
+      }
+      .btn_goInfo:hover{
+        background-color: lemonchiffon;
+      }
+
+
+      .btn_goDonate{
+        position: absolute;
+        left: 660pt;
+        top: 40pt;
+        height: 40pt;
+        width: 100pt;
+        font-size: 15pt;
+        background-color:cadetblue;
+        transition: all 1s 0s ease;
+
+      }
+      .btn_goDonate:hover{
+        background-color: lemonchiffon;
+      }
     </style>
 </head>
 
@@ -161,16 +208,25 @@
     <div class="container header">
         <h1>垃圾軟工訂房系統</h1>
         <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link" href="main.html">首頁</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">關於我們</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">贊助我們</a>
-            </li>
-        </ul>
+        <li class="nav-item">
+          <form action="/goMainPage/" method="post" name="goMain" id="goMain">
+          {% csrf_token %}
+          <a type="submit" class="btn btn-primary btn_goMain"  role="button"><strong>首頁</strong></a>
+          </form>
+        </li>
+        <li class="nav-item">
+          <form action="/goOurInfoPage/" method="post" name="goInfo" id="goInfo">
+          {% csrf_token %}
+          <a type="submit" class="btn btn-primary btn_goInfo"  role="button"><strong>關於我們</strong></a>
+          </form>
+        </li>
+        <li class="nav-item">
+           <form action="/goDonatePage/" method="post" name="goDonate" id="goDonate">
+          {% csrf_token %}
+          <a type="submit" class="btn btn-primary btn_goDonate"  role="button"><strong>斗內我們</strong></a>
+          </form>
+        </li>
+      </ul>
     </div>
 
     <div class="container body1">
@@ -179,8 +235,8 @@
         <div class="container ui">
             <h2><strong>歡迎預約教室</strong></h2>
 
-            <form action="" method="" id="borrow_form">
-
+            <form action="/borrow/" method="post" id="borrow_form">
+                {% csrf_token %}
                 <div class="form-group date_input">
                     <p><strong>請輸入日期</strong></p>
                     <input type="date" class="form-control" id="date" name="date" value="">
@@ -188,7 +244,7 @@
 
                 <div class="form-group meating_title_input">
                     <p><strong>請輸入借教室目的</strong></p>
-                    <input class ="form-control" id="meating_title" name="meating_title" value="">
+                    <input class ="form-control" id="meeting_title" name="meeting_title" value="">
                 </div>
 
                 <div class="form-group room_input">
@@ -273,7 +329,7 @@
 
             $(".borrow_btn").click(function(){
                 const date = document.getElementById('date').value;
-                const meating_title = document.getElementById('meating_title').value;
+                const meeting_title = document.getElementById('meeting_title').value;
                 const room_id = document.getElementById('room_id').value;
                 const start_section = document.getElementById('start_section').value;
                 const end_section = document.getElementById('end_section').value;
@@ -289,7 +345,7 @@
                     else
                     {
                         var form = document.getElementById('form');
-                        alert("您已成功借到教室");
+                        //alert("您已成功借到教室");
                         form.submit();
                        
                     }
@@ -297,9 +353,39 @@
             })
 
        })
+        //跳轉function
+        $(document).ready(function(){
+
+            $(".btn_goMain").click(function(){
+                    document.getElementById('goMain').submit();
+            }
+            )
+       })
+
+       $(document).ready(function(){
+
+            $(".btn_goInfo").click(function(){
+                    document.getElementById('goInfo').submit();
+            }
+            )
+       })
+       $(document).ready(function(){
+
+            $(".btn_goDonate").click(function(){
+                    document.getElementById('goDonate').submit();
+            }
+            )
+       })
+
 
     </script>
-    
+    {% if messages %}
+    <script>
+        {% for msg in messages %}
+            alert('{{ msg.message }}');
+        {% endfor %}
+    </script>
+    {% endif %}
 </body>
 
 </html>
