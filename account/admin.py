@@ -10,8 +10,7 @@ class accountFilter(ImportExportActionModelAdmin):
     list_filter = ('id', 'userRoot',)
     list_per_page = 10
     list_editable = ('userRoot', )
-    #ordering = ('-mod_date',)
-    #list_filter = ('userName')
+
 # Register your models here.
 #admin.site.register(Account)
 
