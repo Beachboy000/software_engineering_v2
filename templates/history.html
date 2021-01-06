@@ -184,19 +184,19 @@
     <div class="container header">
         <h1>垃圾軟工訂房系統</h1>
         <ul class="nav justify-content-center">
-        <li class="nav-item">
+        <li>
           <form action="/goMainPage/" method="post" name="goMain" id="goMain">
           {% csrf_token %}
           <a type="submit" class="btn btn-primary btn_goMain"  role="button"><strong>首頁</strong></a>
           </form>
         </li>
-        <li class="nav-item">
+        <li>
           <form action="/goOurInfoPage/" method="post" name="goInfo" id="goInfo">
           {% csrf_token %}
           <a type="submit" class="btn btn-primary btn_goInfo"  role="button"><strong>關於我們</strong></a>
           </form>
         </li>
-        <li class="nav-item">
+        <li>
            <form action="/goDonatePage/" method="post" name="goDonate" id="goDonate">
           {% csrf_token %}
           <a type="submit" class="btn btn-primary btn_goDonate"  role="button"><strong>斗內我們</strong></a>
