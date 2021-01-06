@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <title>訂房系統</title>
+    <style>
+        .search_room {
+            height: 50pt;
+            width: 120pt;
+            font-size: 15pt;
+            position: relative;
+            background-color: rgb(107, 13, 196);
+            color: yellow;
+            top: 30pt;
+            border: 2pt solid;
+            border-color: black;
+            line-height: 41pt;
+            transition: all 1s 0s ease;
+        }
+
+        .search_room:hover {
+            background-color: rgb(18, 11, 61);
+            color: gold;
+        }
+
+        .search_history {
+            height: 50pt;
+            width: 120pt;
+            font-size: 15pt;
+            position: relative;
+            background-color: rgb(107, 13, 196);
+            color: yellow;
+            top: 50pt;
+            border: 2pt solid;
+            border-color: black;
+            line-height: 41pt;
+            transition: all 1s 0s ease;
+        }
+
+        .search_history:hover {
+            background-color: rgb(18, 11, 61);
+            color: gold;
+        }
+
+        .help {
+            height: 50pt;
+            width: 120pt;
+            font-size: 15pt;
+            position: relative;
+            background-color: rgb(107, 13, 196);
+            color: yellow;
+            top: 70pt;
+            border: 2pt solid;
+            border-color: black;
+            line-height: 41pt;
+            transition: all 1s 0s ease;
+        }
+
+        .help:hover {
+            background-color: rgb(18, 11, 61);
+            color: gold;
+        }
+
+        .date_input {
+            position: relative;
+            top: 20pt;
+            left:50pt;
+            /* display: inline-block; */
+            width: 700pt;
+        }
+        .date_input p {
+            font-size: 15pt;
+        }
+
+        .meating_title_input {
+            position: relative;
+            top: 20pt;
+            left:50pt;
+            /* display: inline-block; */
+            width: 700pt;
+        }
+        .meating_title_input p {
+            font-size: 15pt;
+        }
+
+        .room_input {
+            position: relative;
+            top: 20pt;
+            left: 50pt;
+            display: inline-block;
+        }
+        .room_input p {
+            font-size: 15pt;
+        }
+
+        .start_section_input{
+            position: relative;
+            top: 20pt;
+            left: 100pt;
+            display: inline-block;
+        }
+        .start_section_input p{
+            font-size: 15pt;
+        }
+
+        .end_section_input{
+            position: relative;
+            top: 20pt;
+            left: 150pt;
+            display: inline-block;
+        }
+        .end_section_input p{
+            font-size: 15pt;
+        }
+
+        .population_input{
+            position: relative;
+            top:20pt;
+            left:200pt;
+            display: inline-block;
+        }
+        .population_input p{
+            font-size: 15pt;
+        }
+
+        .borrow_btn{
+            position: absolute;
+            width:100pt;
+            top:330pt;
+            right:150pt;
+            transition: all 1s 0s ease;
+        }
+        .borrow_btn:hover{
+            background-color:darkblue;
+        }
+
+        .clear_btn{
+            position: absolute;
+            background-color:red;
+            width:100pt;
+            top:330pt;
+            left:150pt;
+            transition: all 1s 0s ease;
+        }
+        .clear_btn:hover{
+            background-color:maroon;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container header">
+        <h1>垃圾軟工訂房系統</h1>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="main.html">首頁</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">關於我們</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">贊助我們</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container body1">
+
+
+        <div class="container ui">
+            <h2><strong>歡迎預約教室</strong></h2>
+
+            <form action="" method="" id="borrow_form">
+
+                <div class="form-group date_input">
+                    <p><strong>請輸入日期</strong></p>
+                    <input type="date" class="form-control" id="date" name="date" value="">
+                </div>
+
+                <div class="form-group meating_title_input">
+                    <p><strong>請輸入借教室目的</strong></p>
+                    <input class ="form-control" id="meating_title" name="meating_title" value="">
+                </div>
+
+                <div class="form-group room_input">
+                    <p><strong>請選擇教室編號</strong></p>
+                    <input list="op_room_id" id="room_id" name="room_id" value="" placeholder="教室1">
+                    <datalist id="op_room_id">
+                        <option value="教室1">
+                        <option value="教室2">
+                        <option value="教室3">
+                        <option value="教室4">
+                        <option value="教室5">
+                        <option value="教室6">
+                    </datalist>
+                </div>
+
+                <div class="form-group start_section_input">
+                    <p><strong>請選擇開始節數</strong></p>
+                    <input list="op_start_section" id="start_section" name="start_section" value="" placeholder="如:第 1 (節)">
+                    <datalist id="op_start_section">
+                        <option value="1">
+                        <option value="2">
+                        <option value="3">
+                        <option value="4">
+                        <option value="5">
+                        <option value="6">
+                        <option value="7">
+                        <option value="8">
+                        <option value="9">
+                        <option value="10">
+                    </datalist>
+                </div>
+
+                <div class="form-group end_section_input">
+                    <p><strong>請選擇結束節數</strong></p>
+                    <input list="op_end_section" id="end_section" name="end_section" value="" placeholder="如:第 1 (節)">
+                    <datalist id="op_end_section">
+                        <option value="1">
+                        <option value="2">
+                        <option value="3">
+                        <option value="4">
+                        <option value="5">
+                        <option value="6">
+                        <option value="7">
+                        <option value="8">
+                        <option value="9">
+                        <option value="10">
+                    </datalist>
+                </div>
+
+                <div class="form-group population_input">
+                    <p><strong>請輸入人數</strong></p>
+                    <input id="population" name="population" value="" placeholder="如 1 (人)">
+                </div>
+
+                <button type="submit"  class="btn btn-primary btn-lg borrow_btn">借教室</button>
+                <button class="btn btn-primary btn-lg clear_btn"  >清除</button>
+
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script type = "text/javascript">
+
+       $(document).ready(function(){
+
+            $(".clear_btn").click(function(){
+                window.location.reload();
+            })  
+
+            $(".borrow_btn").click(function(){
+                const date = document.getElementById('date').value;
+                const meating_title = document.getElementById('meating_title').value;
+                const room_id = document.getElementById('room_id').value;
+                const start_section = document.getElementById('start_section').value;
+                const end_section = document.getElementById('end_section').value;
+                const population = document.getElementById('population').value;
+                if(date.length==0 || meating_title.length==0||room_id.length==0||start_section.length==0||end_section.length==0||population.length==0)
+                    alert("日期、目的、教室編號、起始節數、結束節數、人數 均不得為空");
+                else
+                {
+                    if(parseInt(start_section,10) >= parseInt(end_section,10))
+                    {
+                        alert("起始節數不可大於結束節數");
+                    }
+                    else
+                    {
+                        var form = document.getElementById('form');
+                        alert("您已成功借到教室");
+                        form.submit();
+                       
+                    }
+                }
+            })
+
+       })
+
+    </script>
+    
+</body>
+
+</html>

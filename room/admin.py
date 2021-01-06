@@ -4,8 +4,8 @@ from .models import Room
 
 @admin.register(Room)
 class accountFilter(ImportExportActionModelAdmin):
-    list_display = ('id', 'seq', 'start_time', 'end_time')
-    list_filter = ('id',)
+    list_display = ('id', 'seq', 'date', 'classID')
+    list_filter = ('id', 'date', 'classID')
     list_per_page = 20
 # Register your models here.
 #admin.site.register(Room)

@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <title>訂房系統</title>
+    <style>
+        .body1 {
+            height: 600pt;
+        }
+
+        .ui {
+            height: 550pt;
+        }
+
+        .search_room {
+            height: 50pt;
+            width: 120pt;
+            font-size: 15pt;
+            position: relative;
+            background-color: rgb(107, 13, 196);
+            color: yellow;
+            top: 30pt;
+            border: 2pt solid;
+            border-color: black;
+            line-height: 41pt;
+            transition: all 1s 0s ease;
+        }
+
+        .search_room:hover {
+            background-color: rgb(18, 11, 61);
+            color: gold;
+        }
+
+        .search_history {
+            height: 50pt;
+            width: 120pt;
+            font-size: 15pt;
+            position: relative;
+            background-color: rgb(107, 13, 196);
+            color: yellow;
+            top: 50pt;
+            border: 2pt solid;
+            border-color: black;
+            line-height: 41pt;
+            transition: all 1s 0s ease;
+        }
+
+        .search_history:hover {
+            background-color: rgb(18, 11, 61);
+            color: gold;
+        }
+
+        .help {
+            height: 50pt;
+            width: 120pt;
+            font-size: 15pt;
+            position: relative;
+            background-color: rgb(107, 13, 196);
+            color: yellow;
+            top: 70pt;
+            border: 2pt solid;
+            border-color: black;
+            line-height: 41pt;
+            transition: all 1s 0s ease;
+        }
+
+        .help:hover {
+            background-color: rgb(18, 11, 61);
+            color: gold;
+        }
+
+        .mr-3 {
+            position: relative;
+            top: 15pt;
+            left: 80pt;
+        }
+
+        .mr-4 {
+            position: relative;
+            top: 15pt;
+            left: 100pt;
+        }
+
+        .date_input {
+            position: relative;
+            top: 30pt;
+            left: 120pt;
+        }
+
+        .btn_search {
+            position: relative;
+            left: 20pt;
+            top: 27pt;
+            left: 150pt;
+        }
+
+        .w-100 {
+            background-color: lavender;
+        }
+
+        .d_class {
+            position: relative;
+            top: 20pt;
+            height: 350pt;
+        }
+
+        .class_table {
+            position: relative;
+            top: 50pt;
+            background-color: lavender;
+            border-color: black;
+
+        }
+
+        td {
+            border: 3px solid;
+            border-color: black;
+        }
+
+        tr {
+            border: 3px solid;
+            border-color: black;
+        }
+
+        th {
+            border: 3px solid;
+            border-color: black;
+        }
+
+        .reservation_search{
+            position: relative;
+            top: 20pt;
+            left:350pt;
+        }
+        
+        .btn_reservation{
+            transition: all 1s 0s ease;
+        }
+        .btn_reservation:hover{
+            background-color:yellow;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container header">
+        <h1>垃圾軟工訂房系統</h1>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="main.html">首頁</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">關於我們</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">贊助我們</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container body1">
+
+
+        <div class="container ui">
+            <h2><strong>歡迎使用訂房系統</strong></h2>
+
+            <nav class="navbar navbar-expand-lg navbar-light">
+
+
+                <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+
+
+                <div class="nav-item mr-3">
+                    <p style="vertical-align:top;"> 可容納人數上限 </p>
+                    <input class="w-100" style="height: 35px;" id="capacity" name="capacity" placeholder="如:10, 25(人)"
+                        value="">
+                </div>
+
+                <div class="nav-item mr-4">
+                    <p style="vertical-align:top;"> 教室編號 </p>
+
+                    <input class="w-100" style="height: 35px;" id="room_id_input" name="CR_ID" placeholder="如:1,2"
+                        value="">
+                </div>
+
+                <div class="date_input">
+                    <input type="date" class="form-control" id="date" name="date" value="">
+                </div>
+
+
+                <div class="nav-item mt-2 btn_search">
+                    <button class="btn btn-primary" style="width: 75px;" type="submit">
+                        搜尋
+                    </button>
+                </div>
+                <!-- </div> -->
+
+
+                </form>
+
+            </nav>
+
+
+            <div class="text-center d_class" style="overflow-x:auto;">
+                <table class="table   class_table">
+                    <thead>
+                        <tr>
+                            <th scope="col">教室ID</th>
+                            <th scope="col">第一節</th>
+                            <th scope="col">第二節</th>
+                            <th scope="col">第三節</th>
+                            <th scope="col">第四節</th>
+                            <th scope="col">第五節</th>
+                            <th scope="col">第六節</th>
+                            <th scope="col">第七節</th>
+                            <th scope="col">第八節</th>
+                            <th scope="col">第九節</th>
+                            <th scope="col">第十節</th>
+                        </tr>
+                    </thead>
+                    <tbody class="first_table">
+                        <tr>
+                            <th scope="row">1</th>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+					
+                        </tr>
+
+                    </tbody>
+                    <tbody class="all_table">
+                        <tr>
+                            <th scope="row">2</th>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+
+                            
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            
+
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+
+
+                            
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+
+                            
+
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+                            <td class="text-center align-middle"></td>
+
+                            
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="nav-item mt-2 reservation_search">
+                <button class="btn btn-primary btn_reservation" style="width: 150px;" type="submit">
+                    預約教室
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $(".first_table").hide();
+            $(".all_table").hide();
+
+            $(".btn_search").click(function () {
+
+                const date = document.getElementById('date').value;
+                const room_id = document.getElementById('room_id_input').value;
+                // alert(room_id);
+                if (date.length == 0) {
+                    alert("請填寫日期")
+                }
+                else if (room_id.length == 0) {
+                    $(".first_table").show();
+                    $(".all_table").show();
+                }
+                else {
+                    if (room_id <= 0 || room_id > 6) {
+                        alert("房間編號只能為1~6")
+                    }
+                    else {
+                        $(".first_table").show();
+                        $(".all_table").hide();
+                    }
+
+                }
+            })
+
+            $(".btn_reservation").click(function(){
+
+                window.location.href='reservation.html';
+
+            })
+
+        })
+
+    </script>
+
+</body>
+
+</html>

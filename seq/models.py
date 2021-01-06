@@ -4,4 +4,4 @@ from datetime import datetime
 class Seq(models.Model):
    seq = models.IntegerField()
    userName = models.EmailField(blank=False,null=False,unique=True)
-   user_run = models.IntegerField()
+   user_num = models.IntegerField()
