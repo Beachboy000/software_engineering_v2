@@ -69,6 +69,16 @@ def goHelpPage(request):
     if request.method == "POST":
         return render(request, 'help.html', locals())
 
+def search(request):
+    if request.method == "POST":
+
+        roomStr = request.POST['roomID']  # 字串轉換
+        roomID = ''.join([x for x in roomStr if x.isdigit()])
+
+        date = request.POST['date']
+        stat = room.getRoomStatus(roomID, date)
+        return render(request, 'search.html', locals())
+
 def goReservePage(request):
     if request.method == "POST":
         return render(request, 'reservation.html', locals())
@@ -92,7 +102,7 @@ def borrow(request):
                 messages.success(request, '成功預約~開心')
                 return render(request, 'main.html', locals())
             else:
-                messages.error(request, '本時段已有人預約!')
+                messages.error(request, '本時段已有人預約...')
                 return render(request, 'reservation.html', locals())
         else:
             messages.error(request, '帳號輸入錯誤 請重新輸入')

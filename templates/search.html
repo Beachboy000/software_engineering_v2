@@ -235,7 +235,8 @@
 
                 <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
 
-
+            <form action="/search/" method="post" id="search" name="search">
+                {% csrf_token %}
                 <div class="nav-item mr-3">
                     <p style="vertical-align:top;"> 可容納人數上限 </p>
                     <input class="w-100" style="height: 35px;" id="capacity" name="capacity" placeholder="如:10, 25(人)"
@@ -245,8 +246,7 @@
                 <div class="nav-item mr-4">
                     <p style="vertical-align:top;"> 教室編號 </p>
 
-                    <input class="w-100" style="height: 35px;" id="room_id_input" name="CR_ID" placeholder="如:1,2"
-                        value="">
+                    <input class="w-100" style="height: 35px;" id="roomID" name="roomID" placeholder="如:1,2" value="">
                 </div>
 
                 <div class="date_input">
@@ -254,12 +254,11 @@
                 </div>
 
 
-                <div class="nav-item mt-2 btn_search">
-                    <button class="btn btn-primary" style="width: 75px;" type="submit">
-                        搜尋
-                    </button>
+                <div class="nav-item mt-2 ">
+                    <a type="submit" class="btn btn-primary btn_search"  role="button">搜尋</a>
                 </div>
                 <!-- </div> -->
+                </form>
             </nav>
 
 
@@ -419,22 +418,27 @@
             $(".btn_search").click(function () {
 
                 const date = document.getElementById('date').value;
-                const room_id = document.getElementById('room_id_input').value;
+                const roomID = document.getElementById('roomID').value;
                 // alert(room_id);
                 if (date.length == 0) {
                     alert("請填寫日期")
                 }
-                else if (room_id.length == 0) {
+                else if (roomID.length == 0) {
                     $(".first_table").show();
                     $(".all_table").show();
                 }
                 else {
-                    if (room_id <= 0 || room_id > 6) {
+                    if (roomID <= 0 || roomID > 6) {
                         alert("房間編號只能為1~6")
                     }
                     else {
                         $(".first_table").show();
                         $(".all_table").hide();
+                        $(".btn_search").click(function(){
+                            document.getElementById('search').submit();
+                            alert('666');
+                         })
+
                     }
 
                 }
@@ -446,31 +450,22 @@
 
             })
 
-        })
-
-        //跳轉function
-        $(document).ready(function(){
-
             $(".btn_goMain").click(function(){
                     document.getElementById('goMain').submit();
             }
             )
-       })
 
-       $(document).ready(function(){
-
-            $(".btn_goInfo").click(function(){
+             $(".btn_goInfo").click(function(){
                     document.getElementById('goInfo').submit();
             }
             )
-       })
-       $(document).ready(function(){
 
-            $(".btn_goDonate").click(function(){
+             $(".btn_goDonate").click(function(){
                     document.getElementById('goDonate').submit();
             }
             )
-       })
+        })
+
 
     </script>
     {% if messages %}

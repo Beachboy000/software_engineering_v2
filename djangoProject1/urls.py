@@ -31,6 +31,7 @@ urlpatterns = [
     path('goHelpPage/', views.goHelpPage),
     path('goReservePage/', views.goReservePage),
     path('borrow/', views.borrow),
+    path('search/', views.search),
 
 
 ]
