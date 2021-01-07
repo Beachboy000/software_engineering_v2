@@ -1,45 +1,243 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>斗內阿shrimps們!</title>
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <div class="Donate">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <title>訂房系統</title>
+    <style>
+        .btn_goMain {
+            position: absolute;
+            left: 420pt;
+            top: 40pt;
+            height: 40pt;
+            width: 70pt;
+            font-size: 15pt;
+            background-color: cadetblue;
+            transition: all 1s 0s ease;
 
-   
-    <h1><strong>歡迎來到斗內頁面</strong></h1>
-      <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <body onload="blinklink()" onunload="stoptimer()">
-            <a type="button" class="btn btn-primary btn_show" href="javascript:;" rel="external nofollow" id="flashit"><strong>我的郵局帳號↓↓↓</strong></a>
-            <p><strong>6666666 6666666</strong></p>
-          </body> 
-        </li>
-      </ul>
-    
-    <script type = "text/javascript">
-    
-    
-    var flashit=document.getElementById('flashit');
-    function blinklink(){
-    if(flashit.style.backgroundColor=='rgb(232, 83, 63)'){ //注意：這裡拿到的是rgb格式的
-    flashit.style.backgroundColor='#485fbd';
-    }else{
-    flashit.style.backgroundColor='rgb(232, 83, 63)';
-    }
-    timer=setTimeout("blinklink()",300);
-    }
-    function stoptimer(){
-    clearTimeout(timer);
-    }
+        }
 
+        .btn_goMain:hover {
+            background-color: lemonchiffon;
+        }
+
+
+        .btn_goInfo {
+            position: absolute;
+            left: 520pt;
+            top: 40pt;
+            height: 40pt;
+            width: 100pt;
+            font-size: 15pt;
+            background-color: cadetblue;
+            transition: all 1s 0s ease;
+
+        }
+
+        .btn_goInfo:hover {
+            background-color: lemonchiffon;
+        }
+
+
+        .btn_goDonate {
+            position: absolute;
+            left: 660pt;
+            top: 40pt;
+            height: 40pt;
+            width: 100pt;
+            font-size: 15pt;
+            background-color: cadetblue;
+            transition: all 1s 0s ease;
+
+        }
+
+        .btn_goDonate:hover {
+            background-color: lemonchiffon;
+        }
+
+        .text1 {
+            position: relative;
+            top: 20pt;
+            font-size: 15pt;
+            color: slateblue;
+            /* animation-name: slide;
+            animation-duration: 4s; */
+        }
+
+        /* 
+        @keyframes slide {
+            from {
+                left: -20%;
+            }
+
+            to {
+                left: 20%;
+            }   
+        } */
+
+        .fake_link {
+            position: relative;
+            top: 20pt;
+            font-size: 15pt;
+            animation-name: change_color;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes change_color {
+            from {
+                color: red;
+            }
+
+            to {
+                color: royalblue;
+            }
+
+            to {
+                color: rgb(146, 199, 40);
+            }
+        }
+
+        .btn_key{
+            position: relative;
+            left:330pt;
+            top:50pt;
+            height: 50pt;
+            width: 150pt;
+            font-size:18pt;
+            background-color: gold;
+            color:black;
+            transition: all 1s 0s ease;
+        }
+        .btn_key:hover{
+            background-color:brown;
+            color:white;
+        }
+
+        .modal_box{
+            background-color:turquoise;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container header">
+        <h1>垃圾軟工訂房系統</h1>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <form action="/goMainPage/" method="post" name="goMain" id="goMain">
+                    {% csrf_token %}
+                    <a type="submit" class="btn btn-primary btn_goMain" role="button"><strong>首頁</strong></a>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form action="/goOurInfoPage/" method="post" name="goInfo" id="goInfo">
+                    {% csrf_token %}
+                    <a type="submit" class="btn btn-primary btn_goInfo" role="button"><strong>關於我們</strong></a>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form action="/goDonatePage/" method="post" name="goDonate" id="goDonate">
+                    {% csrf_token %}
+                    <a type="submit" class="btn btn-primary btn_goDonate" role="button"><strong>斗內我們</strong></a>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container body1">
+
+
+        <div class=" container ui">
+            <h2><strong>歡迎使用訂房系統</strong></h2>
+            <div class="text1">
+                <marquee direction="right" height="80" scrollamount="7" behavior="alternate">
+                    <strong>這份系統做工精緻，撰寫不易</strong> <br>
+                    <strong>因此您的支持是我們創作的動力</strong>
+                    <!-- <p class="text-center "><strong>這份系統做工精緻，撰寫不易</strong></p>
+                    <p class="text-center"><strong>因此您的支持是我們創作的動力</strong></p> -->
+                </marquee>
+            </div>
+
+            <p class="text-center fake_link"><strong>以下是我們銀行帳號連結</strong></p>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn_key" data-toggle="modal" data-target="#exampleModalCenter">
+                donate us
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade " id="exampleModalCenter" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content modal_box">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">感謝贊助</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>開玩笑的啦，哈哈哈</strong></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+    //跳轉function
+        $(document).ready(function(){
+
+            $(".btn_goMain").click(function(){
+                    document.getElementById('goMain').submit();
+            }
+            )
+       })
+
+       $(document).ready(function(){
+
+            $(".btn_goInfo").click(function(){
+                    document.getElementById('goInfo').submit();
+            }
+            )
+       })
+       $(document).ready(function(){
+
+            $(".btn_goDonate").click(function(){
+                    document.getElementById('goDonate').submit();
+            }
+            )
+       })
     </script>
-  
-</div>
-    
+</body>
 
 </html>
