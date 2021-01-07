@@ -3,13 +3,20 @@ import re
 
 regex = '^[A-z0-9]+[\._]?[a-z0-9]+@(\w+.)+(com|tw)$'    #email格式
 
-def getAccount(id,pwd):                     #檢查帳號是否存在
+def getAccount(id,pwd):                     #檢查帳號是否存在(登入用)
     '''
     idTest = 'B10730023@gmail.com'
     pwdTest = '12345678'
     '''
 
     account = Account.objects.filter(userName=id, passWord=pwd)
+    if account.exists():
+        return True
+    else:
+        return False
+
+def checkName(id):
+    account = Account.objects.filter(userName=id)
     if account.exists():
         return True
     else:

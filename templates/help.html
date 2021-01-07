@@ -1,10 +1,175 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>這很有幫助</title>
-  </head>
-<p><strong>我都不行了還幫你</strong></p>
-<p><small>如果是可愛妹子另當別論</small></p>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <title>訂房系統</title>
+    <style>
+        .btn_goMain {
+            position: absolute;
+            left: 420pt;
+            top: 40pt;
+            height: 40pt;
+            width: 70pt;
+            font-size: 15pt;
+            background-color: cadetblue;
+            transition: all 1s 0s ease;
+
+        }
+
+        .btn_goMain:hover {
+            background-color: lemonchiffon;
+        }
+
+
+        .btn_goInfo {
+            position: absolute;
+            left: 520pt;
+            top: 40pt;
+            height: 40pt;
+            width: 100pt;
+            font-size: 15pt;
+            background-color: cadetblue;
+            transition: all 1s 0s ease;
+
+        }
+
+        .btn_goInfo:hover {
+            background-color: lemonchiffon;
+        }
+
+
+        .btn_goDonate {
+            position: absolute;
+            left: 660pt;
+            top: 40pt;
+            height: 40pt;
+            width: 100pt;
+            font-size: 15pt;
+            background-color: cadetblue;
+            transition: all 1s 0s ease;
+
+        }
+
+        .btn_goDonate:hover {
+            background-color: lemonchiffon;
+        }
+
+        ol{
+            position: relative;
+            top:40pt;
+            left:220pt;
+            font-size: 15pt;
+            color:royalblue;
+            animation-name: slide;
+            animation-duration: 2s;
+        }
+        @keyframes slide{
+            from{
+                top:-40%;
+            }
+            to{
+                top:10%;
+            }
+        }
+
+        h3{
+            position: relative;
+            top:80pt;
+            left:270pt;
+            color:red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container header">
+        <h1>垃圾軟工訂房系統</h1>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <form action="/goMainPage/" method="post" name="goMain" id="goMain">
+                    {% csrf_token %}
+                    <a type="submit" class="btn btn-primary btn_goMain" role="button"><strong>首頁</strong></a>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form action="/goOurInfoPage/" method="post" name="goInfo" id="goInfo">
+                    {% csrf_token %}
+                    <a type="submit" class="btn btn-primary btn_goInfo" role="button"><strong>關於我們</strong></a>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form action="/goDonatePage/" method="post" name="goDonate" id="goDonate">
+                    {% csrf_token %}
+                    <a type="submit" class="btn btn-primary btn_goDonate" role="button"><strong>斗內我們</strong></a>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container body1">
+
+
+        <div class="container ui">
+            <h2><strong>幫助</strong></h2>
+
+            <ol>
+                <li><p><strong>如果想預約教室，請先進入查詢可借房間頁面</strong></p></li>
+                <li><p><strong>在查詢頁面中搜尋您想要預約的日期</strong></p></li>
+                <li><p><strong>確認空堂後，請點選下方的預約教室</strong></p></li>
+                <li><p><strong>在預約介面中，請輸入日期、目的、教室編號、<br> 開始節數、結束節數、人數，缺一不可</strong></p></li>
+                <li><p><strong>確認無誤後，點擊下方的借教室按鈕</strong></p></li>
+            </ol>
+
+            <h3><strong>感謝您的光臨，祝您借教室愉快</strong></h3>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+    //跳轉function
+        $(document).ready(function(){
+
+            $(".btn_goMain").click(function(){
+                    document.getElementById('goMain').submit();
+            }
+            )
+       })
+
+       $(document).ready(function(){
+
+            $(".btn_goInfo").click(function(){
+                    document.getElementById('goInfo').submit();
+            }
+            )
+       })
+       $(document).ready(function(){
+
+            $(".btn_goDonate").click(function(){
+                    document.getElementById('goDonate').submit();
+            }
+            )
+       })
+    </script>
+</body>
+
 </html>

@@ -28,9 +28,9 @@
 
 前端 >>> [@何亮牖](https://github.com/B10730029)
 
-Model >>> [@惡魔哲瑋](https://github.com/Uare87haha)
+Model >>> [@粘哲瑋](https://github.com/Uare87haha)
 
-**我不會啦好難喔** >>> [@吳鎮宇](https://github.com/Beachboy000)
+**我不會啦好難喔** >>> [@放鴿子噁男吳鎮宇](https://github.com/Beachboy000)
 
 ## Contributing
 

@@ -86,10 +86,18 @@ def borrow(request):
         population = request.POST['population']
         date = request.POST['date']
         purpose = request.POST['meeting_title']
-        if room.check(room_id, start, end, date):
-            room.reservation(room_id, start, end, date, purpose, name, population)
-            messages.success(request, '成功預約~開心')
-            return render(request, 'main.html', locals())
+        if get_account.checkName(name):
+            if room.check(room_id, start, end, date):
+                room.reservation(room_id, start, end, date, purpose, name, population)
+                messages.success(request, '成功預約~開心')
+                return render(request, 'main.html', locals())
+            else:
+                messages.error(request, '本時段已有人預約!')
+                return render(request, 'reservation.html', locals())
+        else:
+            messages.error(request, '帳號輸入錯誤 請重新輸入')
+            return render(request, 'reservation.html', locals())
+
 
 """
 def main(request):
