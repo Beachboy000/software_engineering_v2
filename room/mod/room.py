@@ -14,12 +14,12 @@ def getRoomStatus(id, date):
     return status
 
 def getHistory(date):             #獲得某天全部房間狀態
-    status = Room.objects.filter(date=date).order_by('roomID')    # result為當天按照classID所排的list(僅傳被預約classID)
+    status = Room.objects.filter(date=date).order_by('roomID')   # result為當天按照classID所排的list(僅傳被預約classID)
     return status
 
 def reservation(id, start, end, date, purpose, username, num):   #預約前記得call check
-      Room.objects.create(roomID = id, date=date, start=start, end=end, purpose=purpose)
-      Seq.objects.create(userName=username, user_num=num)
+      Room.objects.create(roomID=id, date=date, start=start, end=end, purpose=purpose)
+      Seq.objects.create(roomID=id, date=date, start=start, end=end, userName=username)
 
 
 '''

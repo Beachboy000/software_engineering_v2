@@ -32,6 +32,7 @@ urlpatterns = [
     path('goReservePage/', views.goReservePage),
     path('borrow/', views.borrow),
     path('search/', views.search),
+    path('history/', views.history),
 
 
 ]

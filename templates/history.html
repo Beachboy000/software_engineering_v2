@@ -213,12 +213,13 @@
 
             <!-- <form action=""> -->
 
-
+            <form action="/history/" method="post" id="history" name="history">
+                {% csrf_token %}
                 <div class="search_by_room_id">
 
-                    <input type="radio" id="room_id_search" name="search" value="room_id_search" checked> 依教室編號搜尋<br>
-                    <input class="op_room_id" list="op_room_id" id="room_id" name="room_id" value="" placeholder="教室1" autocomplete="off">
-                    <datalist id="op_room_id">
+                    <input type="radio" id="roomID_history" name="history" value="roomID_search" checked> 依教室編號搜尋<br>
+                    <input class="op_roomID" list="op_roomID" id="roomID" name="roomID" value="" placeholder="教室1" autocomplete="off">
+                    <datalist id="op_roomID">
                         <option value="教室1">
                         <option value="教室2">
                         <option value="教室3">
@@ -228,20 +229,22 @@
                     </datalist>
                 </div>
                 <div class="search_by_date">
-                    <input type="radio" id="date_search" name="search" value="date_search"> 依日期搜尋<br>
+                    <input type="radio" id="date_history" name="history" value="date_history"> 依日期搜尋<br>
                     <input type="date" class="form-control" id="date" name="date" value="">
                 </div>
+                <div class="search_by_user">
+                    <input type="radio" id="user_history" name="history" value="user_history"> 依使用者搜尋<br>
+                    <input type="text" class="form-control" id="name" name="name" value="">
+                </div>
                 <div class="search_by_name">
-                    <input type="radio" id="name_search" name="search" value="all_search" checked="true"> 搜尋全部
+                    <input type="radio" id="name_history" name="history" value="all_history" checked="true"> 搜尋全部
                     <p><strong>小孩子才做選擇，我全都要</strong></p>
                 </div>
 
-                <div class="nav-item mt-2 btn_search">
-                    <button class="btn btn-primary" style="width: 75px;" type="submit">
-                        搜尋
-                    </button>
+                <div class="nav-item mt-2 ">
+                    <a type="submit" class="btn btn-primary btn_history" style="width: 75px;" role="button">搜尋</a>
                 </div>
-
+            </form>
 
 
                 <div class="text-center d_class" style="overflow-x:auto;">
@@ -299,55 +302,44 @@
             
 
             $("tbody").hide();
-            $(".btn_search").click(function(){
-                var choise = document.getElementsByName('search');
-                var room_id = document.getElementById('room_id').value;
-                var date = document.getElementById('date').value;
-                if(choise[0].checked == true )
-                {
-                    
-                    if(room_id.length == 0)
-                        alert('請輸入教室編號');
-
-                }
-                else if(choise[1].checked == true)
-                {
-                    if(date.length == 0)
-                        alert('請輸入日期');
-                }
-                else 
-                    $("tbody").show();
-
+            $(".btn_history").click(function(){
+                //var choise = document.getElementsByName('search');
+                var roomID = document.getElementById('roomID_history').value;
+                var date = document.getElementById('date_history').value;
+                const name = document.getElementById('name').value;
+                document.getElementById('history').submit();
 
             })
-            
-        })
 
-        //跳轉function
-        $(document).ready(function(){
 
             $(".btn_goMain").click(function(){
                     document.getElementById('goMain').submit();
             }
             )
-       })
-
-       $(document).ready(function(){
-
-            $(".btn_goInfo").click(function(){
+             $(".btn_goInfo").click(function(){
                     document.getElementById('goInfo').submit();
             }
             )
-       })
-       $(document).ready(function(){
-
             $(".btn_goDonate").click(function(){
                     document.getElementById('goDonate').submit();
             }
             )
-       })
+        })
 
-
+         {#if(choise[0].checked == true )#}
+         {#       {#}
+         {##}
+         {#           if(room_id.length == 0)#}
+         {#               alert('請輸入教室編號');#}
+         {##}
+         {#       }#}
+         {#       else if(choise[1].checked == true)#}
+         {#       {#}
+         {#           if(date.length == 0)#}
+         {#               alert('請輸入日期');#}
+         {#           }#}
+         {#               else #}
+         {#               $("tbody").show();#}
     </script>
     {% if messages %}
     <script>

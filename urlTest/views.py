@@ -65,6 +65,12 @@ def goHistoryPage(request):
     if request.method == "POST":
         return render(request, 'history.html', locals())
 
+def history(request):
+    if request.method == "POST":
+        name = request.POST['name']
+        stat = seq.userHistroy(name)
+        return JsonResponse(list(stat), safe=False)
+
 def goHelpPage(request):
     if request.method == "POST":
         return render(request, 'help.html', locals())
@@ -85,9 +91,178 @@ def search(request):
         roomID = ''.join([x for x in roomStr if x.isdigit()])
 
         date = request.POST['date']
-        stat = room.getRoomStatus(roomID, date)
+        if roomID != '':
+            is_only_date = 0
+            stat = room.getRoomStatus(roomID, date)
+            room1 = 0
+            room2 = 0
+            room3 = 0
+            room4 = 0
+            room5 = 0
+            room6 = 0
+            for i in stat:
+                if i.roomID == 1:
+                    room1 += 1
+                elif i.roomID == 2:
+                    room2 += 1
+                elif i.roomID == 3:
+                    room3 += 1
+                elif i.roomID == 4:
+                    room4 += 1
+                elif i.roomID == 5:
+                    room5 += 1
+                elif i.roomID == 6:
+                    room6 += 1
 
-        return JsonResponse(list(stat), safe=False)
+            occu1 = []
+            occu2 = []
+            occu3 = []
+            occu4 = []
+            occu5 = []
+            occu6 = []
+
+            occupied1 = []
+            occupied2 = []
+            occupied3 = []
+            occupied4 = []
+            occupied5 = []
+            occupied6 = []
+
+            for i in stat:
+                if i.roomID == 1:
+                    for j in range(i.start,i.end+1):
+                        occu1.append(j)
+                elif i.roomID == 2:
+                    for j in range(i.start,i.end+1):
+                        occu2.append(j)
+                elif i.roomID == 3:
+                    for j in range(i.start,i.end+1):
+                        occu3.append(j)
+                elif i.roomID == 4:
+                    for j in range(i.start,i.end+1):
+                        occu4.append(j)
+                elif i.roomID == 5:
+                    for j in range(i.start,i.end+1):
+                        occu5.append(j)
+                elif i.roomID == 6:
+                    for j in range(i.start,i.end+1):
+                        occu6.append(j)
+
+            for i in range(1,11):
+                if i not in occu1:
+                    occupied1.append(0)
+                else:
+                    occupied1.append(1)
+                if i not in occu2:
+                    occupied2.append(0)
+                else:
+                    occupied2.append(1)
+                if i not in occu3:
+                    occupied3.append(0)
+                else:
+                    occupied3.append(1)
+                if i not in occu4:
+                    occupied4.append(0)
+                else:
+                    occupied4.append(1)
+                if i not in occu5:
+                    occupied5.append(0)
+                else:
+                    occupied5.append(1)
+                if i not in occu6:
+                    occupied6.append(0)
+                else:
+                    occupied6.append(1)
+
+
+
+
+            return render(request, "search.html", locals())
+
+        else:
+            is_only_date = 1
+            stat = room.getHistory(date)
+            room1 = 0
+            room2 = 0
+            room3 = 0
+            room4 = 0
+            room5 = 0
+            room6 = 0
+            for i in stat:
+                if i.roomID == 1:
+                    room1 += 1
+                elif i.roomID == 2:
+                    room2 += 1
+                elif i.roomID == 3:
+                    room3 += 1
+                elif i.roomID == 4:
+                    room4 += 1
+                elif i.roomID == 5:
+                    room5 += 1
+                elif i.roomID == 6:
+                    room6 += 1
+
+            occu1 = []
+            occu2 = []
+            occu3 = []
+            occu4 = []
+            occu5 = []
+            occu6 = []
+
+            occupied1 = []
+            occupied2 = []
+            occupied3 = []
+            occupied4 = []
+            occupied5 = []
+            occupied6 = []
+
+            for i in stat:
+                if i.roomID == 1:
+                    for j in range(i.start, i.end + 1):
+                        occu1.append(j)
+                elif i.roomID == 2:
+                    for j in range(i.start, i.end + 1):
+                        occu2.append(j)
+                elif i.roomID == 3:
+                    for j in range(i.start, i.end + 1):
+                        occu3.append(j)
+                elif i.roomID == 4:
+                    for j in range(i.start, i.end + 1):
+                        occu4.append(j)
+                elif i.roomID == 5:
+                    for j in range(i.start, i.end + 1):
+                        occu5.append(j)
+                elif i.roomID == 6:
+                    for j in range(i.start, i.end + 1):
+                        occu6.append(j)
+
+            for i in range(1, 11):
+                if i not in occu1:
+                    occupied1.append(0)
+                else:
+                    occupied1.append(1)
+                if i not in occu2:
+                    occupied2.append(0)
+                else:
+                    occupied2.append(1)
+                if i not in occu3:
+                    occupied3.append(0)
+                else:
+                    occupied3.append(1)
+                if i not in occu4:
+                    occupied4.append(0)
+                else:
+                    occupied4.append(1)
+                if i not in occu5:
+                    occupied5.append(0)
+                else:
+                    occupied5.append(1)
+                if i not in occu6:
+                    occupied6.append(0)
+                else:
+                    occupied6.append(1)
+            return render(request, "search.html", locals())
+
 
 def goReservePage(request):
     if request.method == "POST":

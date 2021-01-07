@@ -155,7 +155,7 @@
 
         .d_class {
             position: relative;
-            top: 20pt;
+            top: 50pt;
             height: 350pt;
         }
 
@@ -184,16 +184,36 @@
 
         .reservation_search{
             position: relative;
-            top: 20pt;
+            top: 70pt;
             left:350pt;
         }
-        
+
         .btn_reservation{
             transition: all 1s 0s ease;
         }
         .btn_reservation:hover{
             background-color:yellow;
             color: black;
+        }
+
+
+
+        .if{
+            position: absolute;
+            top:200pt;
+            left:90pt;
+            height: 100pt;
+            width: 200pt;
+            background-color: white;
+        }
+        .testtest{
+            background-color: black;
+            height: 50pt;
+            width: 80pt;
+        }
+
+        .occupied{
+            background-color: red;
         }
     </style>
 </head>
@@ -261,6 +281,7 @@
             </nav>
 
 
+
             <div class="text-center d_class" style="overflow-x:auto;">
                 <table class="table   class_table">
                     <thead>
@@ -278,101 +299,368 @@
                             <th scope="col">第十節</th>
                         </tr>
                     </thead>
+
                     <tbody class="first_table">
-                        <tr>
-                            <th scope="row">1</th>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-					
-                        </tr>
+{#                    {% for i in stat %}#}
+{#                        {{ i.roomID }}#}
 
-                    </tbody>
-                    <tbody class="all_table">
-                        <tr>
-                            <th scope="row">2</th>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
+                        {% if room1  >= 1 %}
 
-                            
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            
-
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
+                            <tr>
+                                <th scope="row">1</th>
+                                {% if occupied1.0 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied1.1 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied1.2 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied1.3 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied1.4 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied1.5 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied1.6 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied1.7 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied1.8 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied1.9 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
 
 
-                            
-                        </tr>
-                        <tr>
-                            <th scope="row">5</th>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
+                            </tr>
+                        {% endif %}
 
-                            
 
-                        </tr>
-                        <tr>
-                            <th scope="row">6</th>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
-                            <td class="text-center align-middle"></td>
 
-                            
-                        </tr>
+                        {% if room2  >= 1 %}
+                            <tr>
+                                 <th scope="row">2</th>
+
+                                {% if occupied2.0 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied2.1 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied2.2 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied2.3 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied2.4 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied2.5 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied2.6 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied2.7 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied2.8 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied2.9 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+
+
+                            </tr>
+                        {% endif %}
+
+                         {% if room3  >= 1 %}
+                            <tr>
+                                <th scope="row">3</th>
+
+                                {% if occupied3.0 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied3.1 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied3.2 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied3.3 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied3.4 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied3.5 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied3.6 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied3.7 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied3.8 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied3.9 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+
+
+                            </tr>
+                         {% endif %}
+
+                          {% if room4  >= 1 %}
+                            <tr>
+                                <th scope="row">4</th>
+
+                                {% if occupied4.0 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied4.1 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied4.2 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied4.3 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied4.4 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied4.5 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied4.6 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied4.7 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied4.8 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied4.9 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+
+
+                            </tr>
+                         {% endif %}
+
+                         {% if room5  >= 1 %}
+                            <tr>
+                                <th scope="row">5</th>
+
+                                {% if occupied5.0 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied5.1 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied5.2 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied5.3 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied5.4 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied5.5 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied5.6 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied5.7 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied5.8 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied5.9 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+
+
+                            </tr>
+                         {% endif %}
+
+                        {% if room6  >= 1 %}
+                            <tr>
+                                <th scope="row">6</th>
+
+                                {% if occupied6.0 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied6.1 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied6.2 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied6.3 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied6.4 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied6.5 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied6.6 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied6.7 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied6.8 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+                                {% if occupied6.9 == 1 %}
+                                    <td class="text-center align-middle" bgcolor="red"> </td>
+                                {% else %}
+                                    <td class="text-center align-middle"> </td>
+                                {% endif %}
+
+                            </tr>
+
+                        {% endif %}
+{#                    {% endfor %}#}
+
                     </tbody>
 
                 </table>
@@ -391,6 +679,17 @@
                 </button>
                 -->
             </div>
+
+
+{#            <div class="if">#}
+{#                {% for i in stat %}#}
+{#                    {{ room1 }}#}
+{##}
+{##}
+{##}
+{##}
+{#                {% endfor %}#}
+{#            </div>#}
 
         </div>
     </div>
@@ -411,8 +710,8 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            $(".first_table").hide();
-            $(".all_table").hide();
+            {#$(".first_table").hide();#}
+            {#$(".all_table").hide();#}
 
             $(".btn_search").click(function () {
 
@@ -423,19 +722,21 @@
                     alert("請填寫日期")
                 }
                 else if (roomID.length == 0) {
-                    $(".first_table").show();
-                    $(".all_table").show();
+                    {#$(".first_table").show();#}
+                    {#$(".all_table").show();#}
+                    document.getElementById('search').submit();
                 }
                 else {
                     if (roomID <= 0 || roomID > 6) {
                         alert("房間編號只能為1~6")
                     }
                     else {
-                        $(".first_table").show();
-                        $(".all_table").hide();
+                        {#$(".first_table").show();#}
+                        {#$(".all_table").hide();#}
                         $(".btn_search").click(function(){
                             document.getElementById('search').submit();
-                            alert('666');
+
+
                          })
 
                     }
