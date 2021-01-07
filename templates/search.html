@@ -126,28 +126,27 @@
         }
 
         .mr-3 {
-            position: relative;
+            position: absolute;
             top: 15pt;
             left: 80pt;
         }
 
         .mr-4 {
-            position: relative;
+            position: absolute;
             top: 15pt;
-            left: 100pt;
+            left: 250pt;
         }
 
         .date_input {
-            position: relative;
-            top: 30pt;
-            left: 120pt;
+            position: absolute;
+            top: 43pt;
+            left: 450pt;
         }
 
         .btn_search {
-            position: relative;
-            left: 20pt;
-            top: 27pt;
-            left: 150pt;
+            position: absolute;
+            top: 43pt;
+            left: 660pt;
         }
 
         .w-100 {
@@ -201,7 +200,7 @@
 
 <body>
     <div class="container header">
-        <h1>垃圾軟工訂房系統</h1>
+        <h1>軟體工程訂房系統</h1>
         <ul class="nav justify-content-center">
         <li class="nav-item">
           <form action="/goMainPage/" method="post" name="goMain" id="goMain">
@@ -217,7 +216,7 @@
         </li>
         <li class="nav-item">
            <form action="/goDonatePage/" method="post" name="goDonate" id="goDonate">
-          {% csrf_token %}
+           {% csrf_token %}
           <a type="submit" class="btn btn-primary btn_goDonate"  role="button"><strong>斗內我們</strong></a>
           </form>
         </li>

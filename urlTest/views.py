@@ -1,5 +1,5 @@
-from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, JsonResponse
 from django.template.loader import get_template
 from account.mod import get_account
 from django.contrib import messages
@@ -70,6 +70,7 @@ def goHelpPage(request):
         return render(request, 'help.html', locals())
 
 def search(request):
+    '''
     if request.method == "POST":
 
         roomStr = request.POST['roomID']  # 字串轉換
@@ -78,6 +79,15 @@ def search(request):
         date = request.POST['date']
         stat = room.getRoomStatus(roomID, date)
         return render(request, 'search.html', locals())
+    '''
+    if request.method == "POST":
+        roomStr = request.POST['roomID']  # 字串轉換
+        roomID = ''.join([x for x in roomStr if x.isdigit()])
+
+        date = request.POST['date']
+        stat = room.getRoomStatus(roomID, date)
+
+        return JsonResponse(list(stat), safe=False)
 
 def goReservePage(request):
     if request.method == "POST":
