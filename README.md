@@ -8,7 +8,7 @@
 
 ## Background
 
-啊就......柯拉飛要我們做啊......
+啊就...期末作業啊......
 
 ## Install
 
@@ -20,7 +20,7 @@
 
 ## Usage
 
-哦...之後補...東西還沒做完...
+虛擬借用教室系統...
 
 **登入就送五星范欽雄!!!**
 
@@ -30,11 +30,11 @@
 
 Model >>> [@粘哲瑋](https://github.com/Uare87haha)
 
-**我不會啦好難喔** >>> [@放鴿子噁男吳鎮宇](https://github.com/Beachboy000)
+**後端** >>> [@吳鎮宇](https://github.com/Beachboy000)
 
 ## Contributing
 
-我們需要有人教教吳鎮宇用Github
+我們需要有人教教組員用Git
 
 ### Contributors
 
