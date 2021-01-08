@@ -116,41 +116,31 @@
 
         .search_by_room_id{
             display: inline-block;
-            position: relative;
-            top:30pt;
-            left:50pt;
+            position: absolute;
+            top:68pt;
+            left:165pt;
         }
 
         .search_by_date{
-            display: inline-block;
-            position: relative;
-            top:30pt;
-            left :100pt;
+            display: inline-block ;
+            position: absolute;
+            top:65pt;
+            left :365pt;
         }
 
-        .search_by_name{
-            display: inline-block;
-            position: relative;
-            top:25pt;
-            left:150pt;
-        }
-        .search_by_name p{
-            position: relative;
-            top:5pt;
-            font-size:12pt;
-        }
 
-        .btn_search{
-            display: inline-block;
-            position: relative;
-            top:20pt;
-            left:200pt;
+
+        .btn_history{
+            display: inline-block ;
+            position: absolute;
+            top:65pt;
+            left:565pt;
         }
 
 
         .d_class {
             position: relative;
-            top: 50pt;
+            top: 90pt;
             height: 350pt;
         }
 
@@ -176,6 +166,8 @@
             border: 3px solid;
             border-color: black;
         }
+
+
 
     </style>
 </head>
@@ -217,7 +209,7 @@
                 {% csrf_token %}
                 <div class="search_by_room_id">
 
-                    <input type="radio" id="roomID_history" name="history" value="roomID_search" checked> 依教室編號搜尋<br>
+
                     <input class="op_roomID" list="op_roomID" id="roomID" name="roomID" value="" placeholder="教室1" autocomplete="off">
                     <datalist id="op_roomID">
                         <option value="教室1">
@@ -229,17 +221,11 @@
                     </datalist>
                 </div>
                 <div class="search_by_date">
-                    <input type="radio" id="date_history" name="history" value="date_history"> 依日期搜尋<br>
+
                     <input type="date" class="form-control" id="date" name="date" value="">
                 </div>
-                <div class="search_by_user">
-                    <input type="radio" id="user_history" name="history" value="user_history"> 依使用者搜尋<br>
-                    <input type="text" class="form-control" id="name" name="name" value="">
-                </div>
-                <div class="search_by_name">
-                    <input type="radio" id="name_history" name="history" value="all_history" checked="true"> 搜尋全部
-                    <p><strong>小孩子才做選擇，我全都要</strong></p>
-                </div>
+
+
 
                 <div class="nav-item mt-2 ">
                     <a type="submit" class="btn btn-primary btn_history" style="width: 75px;" role="button">搜尋</a>
@@ -247,30 +233,33 @@
             </form>
 
 
+
                 <div class="text-center d_class" style="overflow-x:auto;">
                     <table class="table   history_table">
                         <thead>
                             <tr>
-                                <th scope="col"></th>
+                                <th scope="col">教室編號</th>
                                 <th scope="col">會議名稱</th>
-                                <th scope="col">借用時間</th>
-                                <th scope="col">教室地點</th>
-                                <th scope="col">借用人數</th>
-                                <th scope="col">修改資料</th>
+                                <th scope="col">借用日期</th>
+                                <th scope="col">開始節數</th>
+                                <th scope="col">結束節數</th>
                             </tr>
                         </thead>
                         <tbody >
-                            <tr>
-                                <th scope="row">1</th>
-                                <td class="text-center align-middle"></td>
-                                <td class="text-center align-middle"></td>
-                                <td class="text-center align-middle"></td>
-                                <td class="text-center align-middle"></td>
-                                <td class="text-center align-middle"></td>
-                            </tr>
+                            {% for i in stat %}
+                                <tr>
+                                    <td class="text-center align-middle">{{ i.roomID }}</td>
+                                    <td class="text-center align-middle">{{ i.purpose }}</td>
+                                    <td class="text-center align-middle">{{ i.date }}</td>
+                                    <td class="text-center align-middle">{{ i.start }}</td>
+                                    <td class="text-center align-middle">{{ i.end }}</td>
+                                </tr>
+                            {% endfor %}
                         </tbody>
-    
+
+
                     </table>
+
     
                 </div>
     
@@ -299,15 +288,18 @@
 
         $(document).ready(function () {
 
-            
 
-            $("tbody").hide();
             $(".btn_history").click(function(){
                 //var choise = document.getElementsByName('search');
-                var roomID = document.getElementById('roomID_history').value;
-                var date = document.getElementById('date_history').value;
-                const name = document.getElementById('name').value;
-                document.getElementById('history').submit();
+                const roomID = document.getElementById('roomID').value;
+                const date = document.getElementById('date').value;
+
+                if(date.length == 0)
+                        alert('請輸入日期');
+                else if(roomID.length == 0)
+                     document.getElementById('history').submit();
+                else
+                     document.getElementById('history').submit();
 
             })
 
@@ -326,20 +318,9 @@
             )
         })
 
-         {#if(choise[0].checked == true )#}
-         {#       {#}
-         {##}
-         {#           if(room_id.length == 0)#}
-         {#               alert('請輸入教室編號');#}
-         {##}
-         {#       }#}
-         {#       else if(choise[1].checked == true)#}
-         {#       {#}
-         {#           if(date.length == 0)#}
-         {#               alert('請輸入日期');#}
-         {#           }#}
-         {#               else #}
-         {#               $("tbody").show();#}
+
+
+
     </script>
     {% if messages %}
     <script>

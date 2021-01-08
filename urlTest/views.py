@@ -67,9 +67,20 @@ def goHistoryPage(request):
 
 def history(request):
     if request.method == "POST":
-        name = request.POST['name']
-        stat = seq.userHistroy(name)
-        return JsonResponse(list(stat), safe=False)
+        #messages.error(request,'666')
+        #userName = request.POST['userName']
+        roomStr = request.POST['roomID']  # 字串轉換
+        roomID = ''.join([x for x in roomStr if x.isdigit()])
+        date = request.POST['date']
+
+        if roomID !='':
+            only_date = 0
+            stat = room.getRoomStatus(roomID, date)
+            return render(request, 'history.html', locals())
+        else:
+            only_date = 1
+            stat = room.getHistory(date)
+            return render(request, 'history.html', locals())
 
 def goHelpPage(request):
     if request.method == "POST":
