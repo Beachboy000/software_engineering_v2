@@ -316,10 +316,8 @@
                 </div>
 
                 <button type="submit"  class="btn btn-primary btn-lg borrow_btn">借教室</button>
-                <button class="btn btn-primary btn-lg clear_btn"  >清除</button>
-
             </form>
-
+            <button class="btn btn-primary btn-lg clear_btn" >清除</button>
         </div>
     </div>
 
@@ -341,7 +339,8 @@
 
             $(".clear_btn").click(function(){
                 window.location.reload();
-            })  
+                //location.reload();
+            })
 
             $(".borrow_btn").click(function(){
                 const userBorrow = document.getElementById('userBorrow').value;

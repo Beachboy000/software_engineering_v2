@@ -775,6 +775,12 @@
         {% endfor %}
     </script>
     {% endif %}
+
+    <script>
+        var temp = {{ stat|safe }}
+        alart(stat);
+    </script>
+
 </body>
 
 </html>

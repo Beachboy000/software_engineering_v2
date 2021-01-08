@@ -4,6 +4,10 @@ from django.template.loader import get_template
 from account.mod import get_account
 from django.contrib import messages
 from room.mod import room
+import json
+from django.core import serializers
+
+
 from seq.mod import seq
 # Create your views here.
 
@@ -95,7 +99,9 @@ def search(request):
 
         date = request.POST['date']
         stat = room.getRoomStatus(roomID, date)
-        return render(request, 'search.html', locals())
+        stat = serializers.serialize("json",stat)
+        return render(request,'search.html',{'stat':json.dumps(stat)})
+        #return render(request, 'search.html', locals())
     '''
     if request.method == "POST":
         roomStr = request.POST['roomID']  # 字串轉換
